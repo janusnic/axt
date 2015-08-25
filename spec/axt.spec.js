@@ -21,14 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
-require('../lib/dist/axt.min.js');
 var assert = require('assert');
+var pkg = require('./../package.json');
+require('../lib/dist/axt-'+pkg.version+'.min.js');
 
-it("it should contain it's core classes", function(done){
+
+
+it("should contain it's core classes", function(done){
     assert(typeof _$ !== 'undefined');
-    assert(typeof _$.class !== 'undefined');
-    assert(typeof _$.ajax !== 'undefined');
-    assert(typeof _$.eventEmitter !== 'undefined');
+    assert(typeof _$.Class !== 'undefined');
+    assert(typeof _$.Ajax !== 'undefined');
+    assert(typeof _$.EventEmitter !== 'undefined');
+    done();
+});
+
+it("should support polymorphism", function(done){
+    var BaseClass = _$.Class.extend({
+        init: function(){
+            assert(this instanceof BaseClass);
+        }
+    });
+    var InheritedClass = BaseClass.extend({
+        init: function(){
+            assert(this instanceof InheritedClass);
+        }
+    });
+    var a = new BaseClass();
+    var b = new InheritedClass();
+    assert(a !== b);
+    assert(b instanceof BaseClass);
+    assert(!(a instanceof InheritedClass));
     done();
 });

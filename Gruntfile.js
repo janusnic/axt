@@ -4,7 +4,9 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             options: {
-                separator: ' '
+                separator: ' ',
+                stripBanners: true,
+                banner: grunt.file.read('./LICENSE')
             },
             dist: {
                 src: [
@@ -12,20 +14,20 @@ module.exports = function(grunt) {
                     'lib/src/Ajax.js',
                     'lib/src/EventEmitter.js'
                 ],
-                dest: 'lib/dist/axt.js'
+                dest: 'lib/dist/axt-<%= pkg.version %>.js'
             }
         },
         uglify: {
             options: {
                 mangle: false,
                 sourceMap: true,
-                sourceMapName: 'lib/dist/axt.js.map',
+                sourceMapName: 'lib/dist/axt-<%= pkg.version %>.js.map',
                 banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
                 '<%= grunt.template.today("yyyy-mm-dd") %> */'
             },
             my_target: {
                 files: {
-                    'lib/dist/axt.min.js': ['lib/src/Class.js','lib/src/Ajax.js', 'lib/src/EventEmitter.js']
+                    'lib/dist/axt-<%= pkg.version %>.min.js': ['lib/src/Class.js','lib/src/Ajax.js', 'lib/src/EventEmitter.js']
                 }
             }
         },
