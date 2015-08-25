@@ -1,6 +1,6 @@
 {
   "name": "axt",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "description": "AXT.JS Framework",
   "main": "lib/index.js",
   "scripts": {
