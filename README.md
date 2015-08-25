@@ -5,3 +5,12 @@
 
 The idea for AXT is to provide a simple and extendable javascript framework for working both in node.js as well as in the browser.
 
+[AXT Wiki](https://github.com/gabereiser/axt/wiki)
+
+
+- [[Home|home]]
+- [[Getting Started|getting-started]]
+- [[Classes|classes]]
+- [[Event Emitters|event-emitters]]
+- [[Ajax|ajax]]
+
