@@ -27,8 +27,19 @@ module.exports = function(grunt) {
                     'lib/dist/axt.min.js': ['lib/src/Class.js','lib/src/Ajax.js']
                 }
             }
+        },
+        jasmine_node: {
+            options: {
+                forceExit: true,
+                match: '.',
+                matchall: false,
+                extensions: 'js',
+                specNameMatcher: 'spec'
+            },
+            all: ['spec/']
         }
     });
+    grunt.loadNpmTasks('grunt-jasmine-node');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.registerTask('default', ['concat','uglify'])
