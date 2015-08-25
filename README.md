@@ -8,9 +8,9 @@ The idea for AXT is to provide a simple and extendable javascript framework for 
 [AXT Wiki](https://github.com/gabereiser/axt/wiki)
 
 
-- [[Home|home]]
-- [[Getting Started|getting-started]]
-- [[Classes|classes]]
-- [[Event Emitters|event-emitters]]
-- [[Ajax|ajax]]
+- [Home](https://github.com/gabereiser/axt)
+- [Getting Started](https://github.com/gabereiser/axt/wiki/getting-started)
+- [Classes](https://github.com/gabereiser/axt/wiki/classes)
+- [Event Emitters](https://github.com/gabereiser/axt/wiki/event-emitters)
+- [Ajax](https://github.com/gabereiser/axt/wiki/ajax)
 
