@@ -7,7 +7,13 @@
     "test": "grunt"
   },
   "keywords": [
-    "AXT"
+    "AXT",
+    "Browser",
+    "Node.js",
+    "iojs",
+    "Ajax",
+    "OOP",
+    "MVC"
   ],
   "author": "Gabriel Reiser",
   "license": "MIT",
