@@ -22,11 +22,13 @@
  * THE SOFTWARE.
  */
 
-require('../lib/index.js');
+require('../lib/dist/axt.min.js');
 var assert = require('assert');
 
 it("it should contain it's core classes", function(done){
     assert(typeof _$ !== 'undefined');
-
+    assert(typeof _$.class !== 'undefined');
+    assert(typeof _$.ajax !== 'undefined');
+    assert(typeof _$.eventEmitter !== 'undefined');
     done();
 });

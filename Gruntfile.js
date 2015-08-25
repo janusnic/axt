@@ -4,15 +4,16 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             options: {
-                separator: ';',
+                separator: ' '
             },
             dist: {
                 src: [
                     'lib/src/Class.js',
-                    'lib/src/Ajax.js'
+                    'lib/src/Ajax.js',
+                    'lib/src/EventEmitter.js'
                 ],
-                dest: 'lib/dist/axt.js',
-            },
+                dest: 'lib/dist/axt.js'
+            }
         },
         uglify: {
             options: {
@@ -24,7 +25,7 @@ module.exports = function(grunt) {
             },
             my_target: {
                 files: {
-                    'lib/dist/axt.min.js': ['lib/src/Class.js','lib/src/Ajax.js']
+                    'lib/dist/axt.min.js': ['lib/src/Class.js','lib/src/Ajax.js', 'lib/src/EventEmitter.js']
                 }
             }
         },

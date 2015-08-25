@@ -4,7 +4,7 @@
   "description": "AXT is a front-end MVC UI framework for building responsive sites with Bootstrap.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "grunt"
+    "test": "grunt && jasmine"
   },
   "keywords": [
     "AXT"
