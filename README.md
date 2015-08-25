@@ -1,5 +1,5 @@
 # AXT #
-![build status](https://travis-ci.org/gabereiser/axt.svg)
+[![Build Status](https://travis-ci.org/gabereiser/axt.svg)](https://travis-ci.org/gabereiser/axt)
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gabereiser/axt?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
