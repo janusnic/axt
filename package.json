@@ -4,7 +4,7 @@
   "description": "AXT.JS Framework",
   "main": "lib/index.js",
   "scripts": {
-    "test": "grunt && jasmine"
+    "test": "grunt"
   },
   "keywords": [
     "AXT"

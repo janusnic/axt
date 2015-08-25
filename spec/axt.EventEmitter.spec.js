@@ -21,26 +21,27 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+describe('axt.EventEmitter', function() {
 
-var assert = require('assert');
-var pkg = require('./../package.json');
-require('../lib/dist/axt-'+pkg.version+'.min.js');
+    var pkg = require('./../package.json');
+    require('../lib/dist/axt-' + pkg.version + '.min.js');
 
-it('should support event triggering', function(done){
-    var MyEventClass = _$.EventEmitter.extend({
-        init: function(){
-        },
-        set: function(prop){
-            this[prop.name] = prop.value;
-            this.emit('changed', prop); //here we are emitting a custom event with prop as the arguments
-        }
+    it('should support event triggering', function (done) {
+        var MyEventClass = _$.EventEmitter.extend({
+            init: function () {
+            },
+            set: function (prop) {
+                this[prop.name] = prop.value;
+                this.emit('changed', prop); //here we are emitting a custom event with prop as the arguments
+            }
+        });
+        var propTest = {name: 'x', value: 2};
+        var instance = new MyEventClass();
+        instance.on('changed', function (property) {
+            expect(propTest).toEqual(property);
+            expect(instance.x).toEqual(2);
+            done();
+        });
+        instance.set(propTest);
     });
-    var propTest = {name:'x', value:2};
-    var instance = new MyEventClass();
-    instance.on('changed', function(property){
-        assert(propTest === property);
-        assert(instance.x === 2);
-        done();
-    });
-    instance.set(propTest);
 });

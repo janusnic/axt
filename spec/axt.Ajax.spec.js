@@ -21,36 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-describe('axt', function() {
-    
+describe('axt.Ajax', function() {
+    var assert = require('assert');
     var pkg = require('./../package.json');
-    require('../lib/dist/axt-' + pkg.version + '.min.js');
+    require('../lib/dist/axt-'+pkg.version+'.js');
 
-
-    it("should contain it's core classes", function (done) {
-        expect(typeof _$).toNotEqual('undefined');
-        expect(typeof _$.Class).toNotEqual('undefined');
-        expect(typeof _$.Ajax).toNotEqual('undefined');
-        expect(typeof _$.EventEmitter).toNotEqual('undefined');
-        done();
-    });
-
-    it("should support polymorphism", function (done) {
-        var BaseClass = _$.Class.extend({
-            init: function () {
-                expect(this instanceof BaseClass).toEqual(true);
-            }
+    it('should fetch web data', function (done) {
+        var ajax = new _$.Ajax();
+        ajax.get({
+            url: 'http://www.google.com',
+            type: 'text/html'
+        }).success(function (data) {
+            expect(data).toNotEqual(null);
+            done();
+        }).error(function (error) {
+            assert(false);
+            console.log(error);
+            done();
         });
-        var InheritedClass = BaseClass.extend({
-            init: function () {
-                expect(this instanceof InheritedClass).toEqual(true);
-            }
-        });
-        var a = new BaseClass();
-        var b = new InheritedClass();
-        expect(a).toNotEqual(b);
-        expect(a instanceof BaseClass).toEqual(true);
-        expect(a instanceof InheritedClass).toEqual(false);
-        done();
     });
 });
