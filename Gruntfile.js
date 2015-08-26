@@ -10,9 +10,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 src: [
-                    'lib/src/Class.js',
-                    'lib/src/Ajax.js',
-                    'lib/src/EventEmitter.js'
+                    'lib/src/*.js'
                 ],
                 dest: 'lib/dist/axt-<%= pkg.version %>.js'
             }
@@ -27,7 +25,7 @@ module.exports = function(grunt) {
             },
             my_target: {
                 files: {
-                    'lib/dist/axt-<%= pkg.version %>.min.js': ['lib/src/Class.js','lib/src/Ajax.js', 'lib/src/EventEmitter.js']
+                    'lib/dist/axt-<%= pkg.version %>.min.js':'lib/dist/axt-<%= pkg.version %>.js'
                 }
             }
         },
